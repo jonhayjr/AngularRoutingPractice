@@ -1,0 +1,17 @@
+<div>
+  <h4>Actors</h4>
+  <a [routerLink]="['/actors']" [queryParams]="{showDetails: true}">Show Details</a>
+
+
+  <div *ngFor="let actor of actors; index as i"
+    class="bg-dark text-light p-3 rounded mb-2"
+    >
+    <a [routerLink] ="['/actors', actor.id, 'edit']">{{(i+1) + '. ' + actor.name}}</a>
+    <div *ngIf="showDetails">
+      <div>Flop: {{actor.movieTitle}}</div>
+      <div>DOB: {{actor.born}}</div>
+      <div>Appearances: {{actor.credits}}</div>
+    </div>
+  </div>
+
+</div>
